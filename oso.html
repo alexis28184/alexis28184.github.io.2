@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>El armario de oso</title>
+  <link rel="stylesheet" href="estilo2.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    header {
+      display: flex;
+      align-items: center;
+      padding: 10px 20px;
+      background-color: #382afa;
+      border-bottom: 1px solid #ccc;
+    }
+    header img {
+      height: 60px;
+      margin-right: 15px;
+    }
+    header h1 {
+      font-size: 24px;
+      color: #333;
+      margin: 0;
+    }
+    .catalogo {
+      display: none;
+      flex-wrap: wrap;
+      gap: 1rem;
+      padding: 20px;
+    }
+    .producto {
+      border: 1px solid #ccc;
+      padding: 10px;
+      width: 200px;
+    }
+    .producto img {
+      width: 100%;
+    }
+    #carrito {
+      position: fixed;
+      top: 10px;
+      right: 10px;
+      width: 300px;
+      background: white;
+      border: 1px solid #aaa;
+      padding: 10px;
+      display: none;
+      z-index: 1000;
+    }
+    #carritoToggle {
+      position: fixed;
+      top: 10px;
+      right: 10px;
+      background: orange;
+      border: none;
+      padding: 10px;
+      cursor: pointer;
+      z-index: 1100;
+    }
+    .notificacion {
+      background: red;
+      color: white;
+      border-radius: 50%;
+      padding: 3px 7px;
+      font-size: 12px;
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
+    .botones {
+      margin: 20px;
+      text-align: center;
+    }
+    .botones button {
+      margin: 0 10px;
+      padding: 10px 20px;
+      cursor: pointer;
+    }
+    #historial {
+      margin-top: 30px;
+      padding: 0 20px;
+    }
+    footer {
+      margin-top: 50px;
+      text-align: center;
+      padding: 20px;
+      background-color: #f0f0f0;
+    }
+    footer a {
+      margin: 0 10px;
+      text-decoration: none;
+      font-weight: bold;
+      color: #333;
+    }
+    footer p {
+      margin: 5px 0;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="logo.png" alt="Logo de El armario de oso">
+    <h1>EL ARMARIO DE OSO</h1>
+  </header>
+
+  <button id="carritoToggle">
+    🛒 <span id="contador" class="notificacion">0</span>
+  </button>
+
+  <div class="botones">
+    <button onclick="mostrarCatalogo('shorts')">Shorts</button>
+    <button onclick="mostrarCatalogo('gorras')">Gorras</button>
+    <button onclick="mostrarCatalogo('camisas')">Camisas</button>
+    <button onclick="mostrarCatalogo('pantalones')">Pantalones</button>
+    <button onclick="mostrarTodos()">Todos los productos</button>
+  </div>
+
+  <!-- SHORTS -->
+  <div id="shorts" class="catalogo">
+    <div class="producto">
+      <img src="negro.jpg" alt="Short Deportivo Negro">
+      <h3>Short Deportivo Negro</h3>
+      <p>Precio: $250</p>
+      <button onclick="agregarAlCarrito('Short Deportivo Negro', 250)">Agregar al carrito</button>
+    </div>
+    <div class="producto">
+      <img src="gris.jpg" alt="Short Casual Gris">
+      <h3>Short Casual Gris</h3>
+      <p>Precio: $300</p>
+      <button onclick="agregarAlCarrito('Short Casual Gris', 300)">Agregar al carrito</button>
+    </div>
+    <div class="producto">
+      <img src="azul.jpg" alt="Short Mezclilla Azul">
+      <h3>Short Mezclilla Azul</h3>
+      <p>Precio: $280</p>
+      <button onclick="agregarAlCarrito('Short Mezclilla Azul', 280)">Agregar al carrito</button>
+    </div>
+  </div>
+
+  <!-- GORRAS -->
+  <div id="gorras" class="catalogo">
+    <div class="producto">
+      <img src="gorranegra.jpg" alt="Gorra Negra Básica">
+      <h3>Gorra Negra Básica</h3>
+      <p>Precio: $150</p>
+      <button onclick="agregarAlCarrito('Gorra Negra Básica', 150)">Agregar al carrito</button>
+    </div>
+    <div class="producto">
+      <img src="gorrablanca.jpg" alt="Gorra Blanca con Logo">
+      <h3>Gorra Blanca con Logo</h3>
+      <p>Precio: $180</p>
+      <button onclick="agregarAlCarrito('Gorra Blanca con Logo', 180)">Agregar al carrito</button>
+    </div>
+    <div class="producto">
+      <img src="belico.jpg" alt="Gorra Estilo Trucker">
+      <h3>Gorra Estilo Trucker</h3>
+      <p>Precio: $200</p>
+      <button onclick="agregarAlCarrito('Gorra Estilo Trucker', 200)">Agregar al carrito</button>
+    </div>
+  </div>
+
+  <!-- CAMISAS -->
+  <div id="camisas" class="catalogo">
+    <div class="producto">
+      <img src="camisaazul.jpg" alt="Camisa Manga Corta Azul">
+      <h3>Camisa Manga Corta Azul</h3>
+      <p>Precio: $320</p>
+      <button onclick="agregarAlCarrito('Camisa Manga Corta Azul', 320)">Agregar al carrito</button>
+    </div>
+    <div class="producto">
+      <img src="camisa blanca.jpg" alt="Camisa Blanca Casual">
+      <h3>Camisa Blanca Casual</h3>
+      <p>Precio: $350</p>
+      <button onclick="agregarAlCarrito('Camisa Blanca Casual', 350)">Agregar al carrito</button>
+    </div>
+    <div class="producto">
+      <img src="camisaroja.jpg" alt="Camisa a Cuadros Roja">
+      <h3>Camisa a Cuadros Roja</h3>
+      <p>Precio: $390</p>
+      <button onclick="agregarAlCarrito('Camisa a Cuadros Roja', 390)">Agregar al carrito</button>
+    </div>
+  </div>
+
+  <!-- PANTALONES -->
+  <div id="pantalones" class="catalogo">
+    <div class="producto">
+      <img src="pantalónazul.jpg" alt="Pantalón Mezclilla Azul">
+      <h3>Pantalón Mezclilla Azul</h3>
+      <p>Precio: $450</p>
+      <button onclick="agregarAlCarrito('Pantalón Mezclilla Azul', 450)">Agregar al carrito</button>
+    </div>
+    <div class="producto">
+      <img src="joger.jpg" alt="Pantalón Jogger Negro">
+      <h3>Pantalón Jogger Negro</h3>
+      <p>Precio: $420</p>
+      <button onclick="agregarAlCarrito('Pantalón Jogger Negro', 420)">Agregar al carrito</button>
+    </div>
+    <div class="producto">
+      <img src="pantalonverde.jpg" alt="Pantalón Cargo Verde">
+      <h3>Pantalón Cargo Verde</h3>
+      <p>Precio: $480</p>
+      <button onclick="agregarAlCarrito('Pantalón Cargo Verde', 480)">Agregar al carrito</button>
+    </div>
+  </div>
+
+  <div id="carrito">
+    <h3>Carrito de Compras</h3>
+    <ul id="lista-carrito"></ul>
+    <p>Total: $<span id="total">0</span></p>
+    <button onclick="realizarCompra()">Comprar</button>
+    <button onclick="cerrarCarrito()">Cerrar</button>
+  </div>
+
+  <h2 style="padding: 0 20px;">Historial de Compras</h2>
+  <ul id="historial" style="padding: 0 20px;"></ul>
+
+  <footer>
+    <p>Síguenos en nuestras redes sociales:</p>
+    <a href="https://www.facebook.com//" target="_blank">📘 Facebook</a>
+    <a href="https://www.instagram.com//" target="_blank">📸 Instagram</a>
+    <p>Teléfono: 9617266432</p>
+    <p>Dirección: Santiago Tuxtla, Ver. Comunidad: sesecapan</p>
+  </footer>
+
+  <script>
+    let carrito = [];
+
+    function ocultarTodos() {
+      document.querySelectorAll('.catalogo').forEach(el => el.style.display = 'none');
+    }
+
+    function mostrarCatalogo(categoria) {
+      ocultarTodos();
+      document.getElementById(categoria).style.display = 'flex';
+    }
+
+    function mostrarTodos() {
+      document.querySelectorAll('.catalogo').forEach(el => el.style.display = 'flex');
+    }
+
+    function agregarAlCarrito(nombre, precio) {
+      carrito.push({ nombre, precio });
+      actualizarCarrito();
+    }
+
+    function actualizarCarrito() {
+      const lista = document.getElementById('lista-carrito');
+      lista.innerHTML = '';
+      let total = 0;
+
+      carrito.forEach((item, index) => {
+        const li = document.createElement('li');
+        li.innerHTML = `${item.nombre} - $${item.precio} <button onclick="eliminarDelCarrito(${index})">Eliminar</button>`;
+        lista.appendChild(li);
+        total += item.precio;
+      });
+
+      document.getElementById('total').textContent = total;
+      document.getElementById('contador').textContent = carrito.length;
+    }
+
+    function eliminarDelCarrito(index) {
+      carrito.splice(index, 1);
+      actualizarCarrito();
+    }
+
+    function realizarCompra() {
+      if (carrito.length === 0) return alert('El carrito está vacío.');
+
+      const historial = document.getElementById('historial');
+      carrito.forEach(item => {
+        const li = document.createElement('li');
+        li.textContent = `${item.nombre} - $${item.precio}`;
+        historial.appendChild(li);
+      });
+
+      carrito = [];
+      actualizarCarrito();
+      alert('¡Compra realizada con éxito!');
+    }
+
+    document.getElementById('carritoToggle').addEventListener('click', () => {
+      const carritoDiv = document.getElementById('carrito');
+      carritoDiv.style.display = carritoDiv.style.display === 'block' ? 'none' : 'block';
+    });
+
+    function cerrarCarrito() {
+      document.getElementById('carrito').style.display = 'none';
+    }
+
+    window.onload = () => mostrarCatalogo('shorts');
+  </script>
+</body>
+</html>

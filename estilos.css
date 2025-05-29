@@ -1,0 +1,93 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: sans-serif;
+  color: #000;
+  background-color: #17fb54;
+}
+header {
+  background-color: #000;
+  border-bottom: 1px solid #ddd;
+  padding: 1em; 
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.logo img {
+  height: 50px;
+  vertical-align: middle;
+}
+.logo h1 {
+  display: inline-block;
+  margin-left: 10px;
+  font-size: 1.5em;
+  color: #000;
+}
+.eslogan {
+  font-style: italic;
+  color: #000;
+}
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1em;
+}
+nav a {
+  text-decoration: none;
+  color: #000;
+}
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2em;
+  background-color: #49cdf1;
+}
+.hero img {
+  max-width: 50%;
+}
+.texto-hero h2 {
+  font-size: 2em;
+  color: #000;
+}
+.boton {
+  display: inline-block;
+  margin-top: 1em;
+  padding: 0.5em 1em;
+  background-color: #000;  
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+}
+.productos {
+  padding: 2em;
+  text-align: center;
+}
+.galeria {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2em;
+  margin-top: 1em;
+}
+.producto img {
+  width: 150px;
+  height: auto;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+footer {
+  background-color: #000;
+  color: #000;
+  text-align: center;
+  padding: 1em;
+  margin-top: 2em;
+}
+.redes a {
+  color: #000;
+  text-decoration: none;
+  margin: 0 0.5em;
+}
